@@ -1,12 +1,12 @@
 name:                  haskoin-crypto
-version:               0.0.1.1
+version:               0.0.2
 synopsis:              Implementation of Bitcoin cryptographic primitives.
 description:
   This package provides the elliptic curve cryptography required for creating
   and validating bitcoin transactions. It also provides SHA-256 and RIPEMD-160
   hashing functions.
-homepage:              http://github.com/plaprade/haskoin-crypto
-bug-reports:           http://github.com/plaprade/haskoin-crypto/issues
+homepage:              http://github.com/nikita-volkov/haskoin-crypto
+bug-reports:           http://github.com/nikita-volkov/haskoin-crypto/issues
 stability:             experimental
 license:               PublicDomain
 license-file:          UNLICENSE
@@ -14,11 +14,11 @@ author:                Philippe Laprade
 maintainer:            plaprade+hackage@gmail.com
 category:              Bitcoin, Finance, Network
 build-type:            Simple
-cabal-version:         >= 1.9.2
+cabal-version:         >= 1.10
 
 source-repository head
     type:     git
-    location: git://github.com/plaprade/haskoin-crypto.git
+    location: git://github.com/nikita-volkov/haskoin-crypto.git
 
 library
     exposed-modules:   Network.Haskoin.Crypto,
@@ -31,15 +31,15 @@ library
                        Network.Haskoin.Crypto.Base58,
                        Network.Haskoin.Crypto.Keys,
                        Network.Haskoin.Crypto.ECDSA
-    build-depends:     base         == 4.6.*, 
-                       containers   == 0.5.*,
-                       mtl          == 2.1.*, 
-                       binary       == 0.7.*, 
-                       bytestring   == 0.10.*, 
-                       byteable     == 0.1.*,
-                       cryptohash   == 0.11.*,
+    build-depends:     base == 4.*, 
+                       containers == 0.5.*,
+                       mtl == 2.*, 
+                       binary >= 0.7 && < 0.9, 
+                       bytestring == 0.10.*, 
+                       byteable == 0.1.*,
+                       cryptohash == 0.11.*,
                        haskoin-util == 0.0.*,
-                       QuickCheck   == 2.6.*
+                       QuickCheck == 2.*
     ghc-options:       -Wall -fno-warn-orphans
 
 Test-Suite test-haskoin-crypto
@@ -54,19 +54,19 @@ Test-Suite test-haskoin-crypto
                        Network.Haskoin.Crypto.Hash.Units,
                        QuickCheckUtils,
                        Units
-    build-depends:     base                       == 4.6.*, 
-                       containers                 == 0.5.*,
-                       mtl                        == 2.1.*, 
-                       binary                     == 0.7.*, 
-                       bytestring                 == 0.10.*, 
-                       byteable                   == 0.1.*,
-                       cryptohash                 == 0.11.*,
-                       haskoin-util               == 0.0.*,
-                       QuickCheck                 == 2.6.*, 
-                       test-framework             == 0.8.*, 
+    build-depends:     base,
+                       containers,
+                       mtl,
+                       binary,
+                       bytestring,
+                       byteable,
+                       cryptohash,
+                       haskoin-util,
+                       QuickCheck,
+                       test-framework == 0.8.*, 
                        test-framework-quickcheck2 == 0.3.*, 
-                       test-framework-hunit       == 0.3.*, 
-                       HUnit                      == 1.2.*
+                       test-framework-hunit == 0.3.*, 
+                       HUnit == 1.*
     hs-source-dirs:    . tests
     ghc-options:       -Wall -fno-warn-orphans
 
